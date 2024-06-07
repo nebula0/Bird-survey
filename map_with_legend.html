@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_48d3fe76eab4c6e6e8ecf793403e8122 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_48d3fe76eab4c6e6e8ecf793403e8122" ></div>
+        
+    
+<div style="
+    position: fixed;
+    top: 50px; 
+    right: 50px; 
+    width: 500px;  <!-- 增大寬度 -->
+    height: 150px;
+    z-index:10000;  <!-- 提高 z-index -->
+    font-size:14px;
+    ">
+    <svg width="500" height="150">  <!-- 增大 SVG 的寬度 -->
+    <text x="60" y="30" font-size="14" >Circle Sizes Legend</text>  <!-- 將文字向右移動 -->
+    <circle cx="60" cy="80" r="30.0" stroke="black" stroke-width="0" fill="gray" />  <!-- 將圓圈向右移動 -->
+    <text x="92.0" y="85" font-size="12" >300</text>
+    <circle cx="145" cy="80" r="25.0" stroke="black" stroke-width="0" fill="gray" />
+    <text x="173.0" y="85" font-size="12" >250</text>
+    <circle cx="220" cy="80" r="20.0" stroke="black" stroke-width="0" fill="gray" />
+    <text x="242.0" y="85" font-size="12" >200</text>
+    <circle cx="290" cy="80" r="18.0" stroke="black" stroke-width="0" fill="gray" />
+    <text x="310.0" y="85" font-size="12" >180</text>
+    <circle cx="350" cy="80" r="15.0" stroke="black" stroke-width="0" fill="gray" />
+    <text x="365" y="85" font-size="12" >150</text>
+    </svg>
+</div>
+<div style="
+    position: fixed;
+    top: 60px;
+    right: 50px;
+    width: 500px;
+    height: 100px;
+    z-index:9999;  <!-- 降低 z-index -->
+    font-size:14px;
+    background-color: #ffffff;
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+    opacity: 0.7;
+    ">
+</div>
+</body>
+<script>
+    
+    
+            var map_48d3fe76eab4c6e6e8ecf793403e8122 = L.map(
+                "map_48d3fe76eab4c6e6e8ecf793403e8122",
+                {
+                    center: [25.018035617070748, 121.53815856394074],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 15.5,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_97bf5c21b7c943129c0a9f924dfad6ef = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 20, "maxZoom": 20, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abcd", "tms": false}
+            );
+        
+    
+            tile_layer_97bf5c21b7c943129c0a9f924dfad6ef.addTo(map_48d3fe76eab4c6e6e8ecf793403e8122);
+        
+    
+            var circle_marker_ebfe89420d63f8951c977e5de650c27f = L.circleMarker(
+                [25.01799, 121.54254],
+                {"bubblingMouseEvents": true, "color": "#ffffccff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffffccff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.0, "stroke": false, "weight": 3}
+            ).addTo(map_48d3fe76eab4c6e6e8ecf793403e8122);
+        
+    
+        var popup_07b6074e717b2a7bdc0c4e1ffc189982 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b6b1e22aad3c535d01d1dd4279992962 = $(`<div id="html_b6b1e22aad3c535d01d1dd4279992962" style="width: 100.0%; height: 100.0%;">G1: 10種, 100個</div>`)[0];
+                popup_07b6074e717b2a7bdc0c4e1ffc189982.setContent(html_b6b1e22aad3c535d01d1dd4279992962);
+            
+        
+
+        circle_marker_ebfe89420d63f8951c977e5de650c27f.bindPopup(popup_07b6074e717b2a7bdc0c4e1ffc189982)
+        ;
+
+        
+    
+    
+            var circle_marker_29df65a1adb99e8ce99527039e5d4337 = L.circleMarker(
+                [25.01773, 121.54193],
+                {"bubblingMouseEvents": true, "color": "#fd8d3cff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fd8d3cff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20.0, "stroke": false, "weight": 3}
+            ).addTo(map_48d3fe76eab4c6e6e8ecf793403e8122);
+        
+    
+        var popup_0a66980cdf8f6359cef051b88722d94a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_78e2d050d12e54ca566c9f8439911492 = $(`<div id="html_78e2d050d12e54ca566c9f8439911492" style="width: 100.0%; height: 100.0%;">G2: 20種, 200個</div>`)[0];
+                popup_0a66980cdf8f6359cef051b88722d94a.setContent(html_78e2d050d12e54ca566c9f8439911492);
+            
+        
+
+        circle_marker_29df65a1adb99e8ce99527039e5d4337.bindPopup(popup_0a66980cdf8f6359cef051b88722d94a)
+        ;
+
+        
+    
+    
+            var circle_marker_2e5a294a7f8dac4cd2ed66643a669ded = L.circleMarker(
+                [25.01647, 121.54222],
+                {"bubblingMouseEvents": true, "color": "#fed976ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#fed976ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.0, "stroke": false, "weight": 3}
+            ).addTo(map_48d3fe76eab4c6e6e8ecf793403e8122);
+        
+    
+        var popup_2ff37d79da9577b511b6e301d2a34b0a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f646c1c3be889ec0f67a1d2daead3ea5 = $(`<div id="html_f646c1c3be889ec0f67a1d2daead3ea5" style="width: 100.0%; height: 100.0%;">G3: 15種, 150個</div>`)[0];
+                popup_2ff37d79da9577b511b6e301d2a34b0a.setContent(html_f646c1c3be889ec0f67a1d2daead3ea5);
+            
+        
+
+        circle_marker_2e5a294a7f8dac4cd2ed66643a669ded.bindPopup(popup_2ff37d79da9577b511b6e301d2a34b0a)
+        ;
+
+        
+    
+    
+            var circle_marker_282d9e9f87aa25095b15078956a03d9b = L.circleMarker(
+                [25.01728, 121.53977],
+                {"bubblingMouseEvents": true, "color": "#e31a1cff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e31a1cff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 25.0, "stroke": false, "weight": 3}
+            ).addTo(map_48d3fe76eab4c6e6e8ecf793403e8122);
+        
+    
+        var popup_3a9cc8527a066345a33e9f86e0f9bd6b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3bcfba61a9813126b8979c19313486e1 = $(`<div id="html_3bcfba61a9813126b8979c19313486e1" style="width: 100.0%; height: 100.0%;">H1: 25種, 250個</div>`)[0];
+                popup_3a9cc8527a066345a33e9f86e0f9bd6b.setContent(html_3bcfba61a9813126b8979c19313486e1);
+            
+        
+
+        circle_marker_282d9e9f87aa25095b15078956a03d9b.bindPopup(popup_3a9cc8527a066345a33e9f86e0f9bd6b)
+        ;
+
+        
+    
+    
+            var circle_marker_2bea4b90cd6d2ae7c29b6af92373ec56 = L.circleMarker(
+                [25.01611, 121.53967],
+                {"bubblingMouseEvents": true, "color": "#800026ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#800026ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 30.0, "stroke": false, "weight": 3}
+            ).addTo(map_48d3fe76eab4c6e6e8ecf793403e8122);
+        
+    
+        var popup_6c5a5a33b903101cfc146ff660c36b1f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_71a641c58e5f5ece5a203315dcd50a5f = $(`<div id="html_71a641c58e5f5ece5a203315dcd50a5f" style="width: 100.0%; height: 100.0%;">H2: 30種, 300個</div>`)[0];
+                popup_6c5a5a33b903101cfc146ff660c36b1f.setContent(html_71a641c58e5f5ece5a203315dcd50a5f);
+            
+        
+
+        circle_marker_2bea4b90cd6d2ae7c29b6af92373ec56.bindPopup(popup_6c5a5a33b903101cfc146ff660c36b1f)
+        ;
+
+        
+    
+    
+            var circle_marker_5bc19b6acba82133d52a84a9b90d0c5e = L.circleMarker(
+                [25.0154, 121.54113],
+                {"bubblingMouseEvents": true, "color": "#feab49ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#feab49ff", "fillOpacity": 0.6, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 18.0, "stroke": false, "weight": 3}
+            ).addTo(map_48d3fe76eab4c6e6e8ecf793403e8122);
+        
+    
+        var popup_fcf71fa8093a36721810b4bf3897d9ae = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7cf05a8bc33019e1304dd14ee2f5fae1 = $(`<div id="html_7cf05a8bc33019e1304dd14ee2f5fae1" style="width: 100.0%; height: 100.0%;">H3: 18種, 180個</div>`)[0];
+                popup_fcf71fa8093a36721810b4bf3897d9ae.setContent(html_7cf05a8bc33019e1304dd14ee2f5fae1);
+            
+        
+
+        circle_marker_5bc19b6acba82133d52a84a9b90d0c5e.bindPopup(popup_fcf71fa8093a36721810b4bf3897d9ae)
+        ;
+
+        
+    
+    
+    var color_map_f3aafb34ce51d2a0960159efe52124a9 = {};
+
+    
+    color_map_f3aafb34ce51d2a0960159efe52124a9.color = d3.scale.threshold()
+              .domain([10.0, 10.040080160320642, 10.080160320641282, 10.120240480961924, 10.160320641282565, 10.200400801603207, 10.240480961923847, 10.280561122244489, 10.32064128256513, 10.360721442885772, 10.400801603206412, 10.440881763527054, 10.480961923847696, 10.521042084168336, 10.561122244488978, 10.60120240480962, 10.641282565130261, 10.681362725450901, 10.721442885771543, 10.761523046092185, 10.801603206412826, 10.841683366733466, 10.881763527054108, 10.92184368737475, 10.96192384769539, 11.002004008016032, 11.042084168336673, 11.082164328657315, 11.122244488977955, 11.162324649298597, 11.202404809619239, 11.24248496993988, 11.28256513026052, 11.322645290581162, 11.362725450901804, 11.402805611222444, 11.442885771543086, 11.482965931863728, 11.52304609218437, 11.56312625250501, 11.603206412825651, 11.643286573146293, 11.683366733466933, 11.723446893787575, 11.763527054108216, 11.803607214428858, 11.8436873747495, 11.88376753507014, 11.923847695390782, 11.963927855711423, 12.004008016032063, 12.044088176352705, 12.084168336673347, 12.124248496993989, 12.164328657314629, 12.20440881763527, 12.244488977955912, 12.284569138276552, 12.324649298597194, 12.364729458917836, 12.404809619238478, 12.444889779559118, 12.48496993987976, 12.525050100200401, 12.565130260521041, 12.605210420841683, 12.645290581162325, 12.685370741482966, 12.725450901803608, 12.765531062124248, 12.80561122244489, 12.845691382765532, 12.885771543086172, 12.925851703406813, 12.965931863727455, 13.006012024048097, 13.046092184368737, 13.086172344689379, 13.12625250501002, 13.16633266533066, 13.206412825651302, 13.246492985971944, 13.286573146292586, 13.326653306613228, 13.366733466933868, 13.40681362725451, 13.44689378757515, 13.486973947895791, 13.527054108216433, 13.567134268537075, 13.607214428857716, 13.647294589178356, 13.687374749498998, 13.72745490981964, 13.76753507014028, 13.807615230460922, 13.847695390781563, 13.887775551102205, 13.927855711422845, 13.967935871743487, 14.008016032064127, 14.048096192384769, 14.08817635270541, 14.128256513026052, 14.168336673346694, 14.208416833667336, 14.248496993987976, 14.288577154308618, 14.328657314629258, 14.3687374749499, 14.408817635270541, 14.448897795591183, 14.488977955911825, 14.529058116232465, 14.569138276553106, 14.609218436873746, 14.649298597194388, 14.68937875751503, 14.729458917835672, 14.769539078156313, 14.809619238476955, 14.849699398797595, 14.889779559118235, 14.929859719438877, 14.969939879759519, 15.01002004008016, 15.050100200400802, 15.090180360721444, 15.130260521042084, 15.170340681362726, 15.210420841683366, 15.250501002004007, 15.29058116232465, 15.330661322645291, 15.370741482965933, 15.410821643286573, 15.450901803607215, 15.490981963927855, 15.531062124248496, 15.571142284569138, 15.61122244488978, 15.651302605210422, 15.691382765531063, 15.731462925851703, 15.771543086172345, 15.811623246492985, 15.851703406813627, 15.891783567134269, 15.93186372745491, 15.971943887775552, 16.012024048096194, 16.052104208416836, 16.092184368737474, 16.132264529058116, 16.172344689378757, 16.2124248496994, 16.25250501002004, 16.29258517034068, 16.33266533066132, 16.372745490981963, 16.412825651302605, 16.452905811623246, 16.492985971943888, 16.53306613226453, 16.57314629258517, 16.613226452905813, 16.653306613226455, 16.693386773547093, 16.733466933867735, 16.773547094188377, 16.81362725450902, 16.85370741482966, 16.8937875751503, 16.93386773547094, 16.973947895791582, 17.014028056112224, 17.054108216432866, 17.094188376753507, 17.13426853707415, 17.17434869739479, 17.214428857715433, 17.25450901803607, 17.294589178356713, 17.334669338677354, 17.374749498997996, 17.414829659318638, 17.45490981963928, 17.494989979959918, 17.53507014028056, 17.5751503006012, 17.615230460921843, 17.655310621242485, 17.695390781563127, 17.73547094188377, 17.77555110220441, 17.815631262525052, 17.85571142284569, 17.895791583166332, 17.935871743486974, 17.975951903807616, 18.016032064128254, 18.056112224448896, 18.096192384769537, 18.13627254509018, 18.17635270541082, 18.216432865731463, 18.256513026052104, 18.296593186372746, 18.336673346693388, 18.37675350701403, 18.41683366733467, 18.45691382765531, 18.49699398797595, 18.537074148296593, 18.577154308617235, 18.617234468937873, 18.657314629258515, 18.697394789579157, 18.7374749498998, 18.77755511022044, 18.817635270541082, 18.857715430861724, 18.897795591182366, 18.937875751503007, 18.97795591182365, 19.01803607214429, 19.05811623246493, 19.09819639278557, 19.138276553106213, 19.178356713426854, 19.218436873747493, 19.258517034068134, 19.298597194388776, 19.338677354709418, 19.37875751503006, 19.4188376753507, 19.458917835671343, 19.498997995991985, 19.539078156312627, 19.57915831663327, 19.61923847695391, 19.65931863727455, 19.69939879759519, 19.739478957915832, 19.77955911823647, 19.819639278557112, 19.859719438877754, 19.899799599198396, 19.939879759519037, 19.97995991983968, 20.02004008016032, 20.060120240480963, 20.100200400801604, 20.140280561122246, 20.180360721442888, 20.22044088176353, 20.260521042084168, 20.30060120240481, 20.34068136272545, 20.38076152304609, 20.42084168336673, 20.460921843687373, 20.501002004008015, 20.541082164328657, 20.5811623246493, 20.62124248496994, 20.661322645290582, 20.701402805611224, 20.741482965931866, 20.781563126252507, 20.821643286573146, 20.861723446893787, 20.90180360721443, 20.94188376753507, 20.98196392785571, 21.02204408817635, 21.062124248496993, 21.102204408817634, 21.142284569138276, 21.182364729458918, 21.22244488977956, 21.2625250501002, 21.302605210420843, 21.342685370741485, 21.382765531062127, 21.422845691382765, 21.462925851703407, 21.50300601202405, 21.54308617234469, 21.58316633266533, 21.62324649298597, 21.663326653306612, 21.703406813627254, 21.743486973947896, 21.783567134268537, 21.82364729458918, 21.86372745490982, 21.903807615230463, 21.943887775551104, 21.983967935871746, 22.024048096192384, 22.064128256513026, 22.104208416833668, 22.144288577154306, 22.184368737474948, 22.22444889779559, 22.26452905811623, 22.304609218436873, 22.344689378757515, 22.384769539078157, 22.4248496993988, 22.46492985971944, 22.505010020040082, 22.545090180360724, 22.585170340681362, 22.625250501002004, 22.665330661322646, 22.705410821643287, 22.745490981963925, 22.785571142284567, 22.82565130260521, 22.86573146292585, 22.905811623246493, 22.945891783567134, 22.985971943887776, 23.026052104208418, 23.06613226452906, 23.1062124248497, 23.146292585170343, 23.18637274549098, 23.226452905811623, 23.266533066132265, 23.306613226452907, 23.346693386773545, 23.386773547094187, 23.42685370741483, 23.46693386773547, 23.507014028056112, 23.547094188376754, 23.587174348697395, 23.627254509018037, 23.66733466933868, 23.70741482965932, 23.747494989979963, 23.7875751503006, 23.827655310621243, 23.867735470941884, 23.907815631262523, 23.947895791583164, 23.987975951903806, 24.028056112224448, 24.06813627254509, 24.10821643286573, 24.148296593186373, 24.188376753507015, 24.228456913827657, 24.2685370741483, 24.30861723446894, 24.34869739478958, 24.38877755511022, 24.428857715430862, 24.468937875751504, 24.509018036072142, 24.549098196392784, 24.589178356713425, 24.629258517034067, 24.66933867735471, 24.70941883767535, 24.749498997995993, 24.789579158316634, 24.829659318637276, 24.869739478957918, 24.90981963927856, 24.949899799599198, 24.98997995991984, 25.03006012024048, 25.070140280561123, 25.11022044088176, 25.150300601202403, 25.190380761523045, 25.230460921843687, 25.27054108216433, 25.31062124248497, 25.350701402805612, 25.390781563126254, 25.430861723446895, 25.470941883767537, 25.51102204408818, 25.551102204408817, 25.59118236472946, 25.6312625250501, 25.67134268537074, 25.71142284569138, 25.751503006012022, 25.791583166332664, 25.831663326653306, 25.871743486973948, 25.91182364729459, 25.95190380761523, 25.991983967935873, 26.03206412825651, 26.072144288577153, 26.112224448897795, 26.152304609218437, 26.19238476953908, 26.23246492985972, 26.272545090180362, 26.312625250501004, 26.352705410821642, 26.392785571142284, 26.432865731462925, 26.472945891783567, 26.51302605210421, 26.55310621242485, 26.593186372745492, 26.63326653306613, 26.673346693386772, 26.713426853707414, 26.753507014028056, 26.793587174348698, 26.83366733466934, 26.87374749498998, 26.91382765531062, 26.95390781563126, 26.993987975951903, 27.034068136272545, 27.074148296593187, 27.11422845691383, 27.15430861723447, 27.194388777555112, 27.23446893787575, 27.274549098196392, 27.314629258517034, 27.354709418837675, 27.394789579158317, 27.43486973947896, 27.4749498997996, 27.51503006012024, 27.55511022044088, 27.595190380761522, 27.635270541082164, 27.675350701402806, 27.715430861723448, 27.75551102204409, 27.795591182364728, 27.83567134268537, 27.87575150300601, 27.915831663326653, 27.955911823647295, 27.995991983967937, 28.03607214428858, 28.07615230460922, 28.11623246492986, 28.1563126252505, 28.196392785571142, 28.236472945891784, 28.276553106212425, 28.316633266533067, 28.35671342685371, 28.396793587174347, 28.43687374749499, 28.47695390781563, 28.517034068136272, 28.557114228456914, 28.597194388777556, 28.637274549098198, 28.677354709418836, 28.717434869739478, 28.75751503006012, 28.79759519038076, 28.837675350701403, 28.877755511022045, 28.917835671342687, 28.95791583166333, 28.997995991983966, 29.03807615230461, 29.07815631262525, 29.118236472945892, 29.158316633266534, 29.198396793587175, 29.238476953907817, 29.278557114228455, 29.318637274549097, 29.35871743486974, 29.39879759519038, 29.438877755511022, 29.478957915831664, 29.519038076152306, 29.559118236472944, 29.599198396793586, 29.639278557114228, 29.67935871743487, 29.71943887775551, 29.759519038076153, 29.799599198396795, 29.839679358717436, 29.879759519038075, 29.919839679358716, 29.95991983967936, 30.0])
+              .range(['#ffffccff', '#ffffccff', '#ffffcbff', '#ffffcaff', '#fffec9ff', '#fffec9ff', '#fffec8ff', '#fffdc7ff', '#fffdc7ff', '#fffdc6ff', '#fffdc5ff', '#fffcc5ff', '#fffcc4ff', '#fffcc3ff', '#fffbc2ff', '#fffbc2ff', '#fffbc1ff', '#fffbc0ff', '#fffac0ff', '#fffabfff', '#fffabeff', '#fff9bdff', '#fff9bdff', '#fff9bcff', '#fff9bbff', '#fff8bbff', '#fff8baff', '#fff8b9ff', '#fff7b8ff', '#fff7b8ff', '#fff7b7ff', '#fff7b6ff', '#fff6b6ff', '#fff6b5ff', '#fff6b4ff', '#fff5b4ff', '#fff5b3ff', '#fff5b2ff', '#fff4b1ff', '#fff4b1ff', '#fff4b0ff', '#fff4afff', '#fff3afff', '#fff3aeff', '#fff3adff', '#fff2acff', '#fff2acff', '#fff2abff', '#fff2aaff', '#fff1aaff', '#fff1a9ff', '#fff1a8ff', '#fff0a7ff', '#fff0a7ff', '#fff0a6ff', '#fff0a5ff', '#ffefa5ff', '#ffefa4ff', '#ffefa3ff', '#ffeea3ff', '#ffeea2ff', '#ffeea1ff', '#ffeea0ff', '#ffeda0ff', '#ffed9fff', '#ffed9eff', '#ffec9eff', '#ffec9dff', '#ffec9cff', '#ffeb9cff', '#ffeb9bff', '#ffeb9aff', '#ffea9aff', '#ffea99ff', '#ffea98ff', '#ffe998ff', '#ffe997ff', '#ffe996ff', '#ffe896ff', '#ffe895ff', '#ffe894ff', '#ffe794ff', '#ffe793ff', '#ffe792ff', '#ffe692ff', '#ffe691ff', '#ffe690ff', '#ffe68fff', '#ffe58fff', '#ffe58eff', '#ffe58dff', '#ffe48dff', '#ffe48cff', '#ffe48bff', '#ffe38bff', '#ffe38aff', '#ffe389ff', '#ffe289ff', '#ffe288ff', '#ffe287ff', '#ffe187ff', '#ffe186ff', '#ffe185ff', '#ffe085ff', '#ffe084ff', '#ffe083ff', '#ffdf83ff', '#ffdf82ff', '#ffdf81ff', '#ffde81ff', '#ffde80ff', '#ffde7fff', '#ffdd7fff', '#ffdd7eff', '#ffdd7dff', '#ffdc7dff', '#ffdc7cff', '#ffdc7bff', '#ffdc7bff', '#ffdb7aff', '#ffdb79ff', '#ffdb78ff', '#ffda78ff', '#ffda77ff', '#ffda76ff', '#fed976ff', '#fed975ff', '#fed874ff', '#fed774ff', '#fed773ff', '#fed672ff', '#fed572ff', '#fed571ff', '#fed470ff', '#fed470ff', '#fed36fff', '#fed26eff', '#fed26eff', '#fed16dff', '#fed06cff', '#fed06cff', '#fecf6bff', '#fecf6aff', '#fece6aff', '#fecd69ff', '#fecd68ff', '#fecc68ff', '#fecb67ff', '#fecb66ff', '#feca66ff', '#feca65ff', '#fec964ff', '#fec864ff', '#fec863ff', '#fec762ff', '#fec662ff', '#fec661ff', '#fec560ff', '#fec45fff', '#fec45fff', '#fec35eff', '#fec35dff', '#fec25dff', '#fec15cff', '#fec15bff', '#fec05bff', '#febf5aff', '#febf59ff', '#febe59ff', '#febe58ff', '#febd57ff', '#febc57ff', '#febc56ff', '#febb55ff', '#feba55ff', '#feba54ff', '#feb953ff', '#feb953ff', '#feb852ff', '#feb751ff', '#feb751ff', '#feb650ff', '#feb54fff', '#feb54fff', '#feb44eff', '#feb44dff', '#feb34dff', '#feb24cff', '#feb24cff', '#feb14bff', '#feb04bff', '#feb04bff', '#feaf4bff', '#feaf4aff', '#feae4aff', '#feae4aff', '#fead4aff', '#feac49ff', '#feac49ff', '#feab49ff', '#feab48ff', '#feaa48ff', '#fea948ff', '#fea948ff', '#fea847ff', '#fea847ff', '#fea747ff', '#fea647ff', '#fea646ff', '#fea546ff', '#fea546ff', '#fea446ff', '#fea345ff', '#fea345ff', '#fea245ff', '#fea245ff', '#fea144ff', '#fea044ff', '#fea044ff', '#fe9f44ff', '#fe9f43ff', '#fe9e43ff', '#fe9d43ff', '#fe9d43ff', '#fe9c42ff', '#fe9c42ff', '#fe9b42ff', '#fe9a42ff', '#fe9a41ff', '#fe9941ff', '#fe9941ff', '#fe9840ff', '#fe9740ff', '#fe9740ff', '#fe9640ff', '#fe963fff', '#fe953fff', '#fe943fff', '#fe943fff', '#fe933eff', '#fe933eff', '#fe923eff', '#fe923eff', '#fe913dff', '#fe903dff', '#fe903dff', '#fe8f3dff', '#fe8f3cff', '#fe8e3cff', '#fe8d3cff', '#fd8d3cff', '#fd8c3bff', '#fd8b3bff', '#fd8a3bff', '#fd883aff', '#fd873aff', '#fd863aff', '#fd853aff', '#fd8439ff', '#fd8339ff', '#fd8239ff', '#fd8138ff', '#fd8038ff', '#fd7f38ff', '#fd7e38ff', '#fd7d37ff', '#fd7c37ff', '#fd7b37ff', '#fd7a36ff', '#fd7936ff', '#fd7836ff', '#fd7736ff', '#fd7635ff', '#fd7535ff', '#fd7435ff', '#fd7334ff', '#fd7234ff', '#fd7134ff', '#fd7033ff', '#fd6f33ff', '#fd6e33ff', '#fd6d33ff', '#fd6c32ff', '#fd6b32ff', '#fd6a32ff', '#fd6931ff', '#fd6831ff', '#fd6731ff', '#fd6631ff', '#fd6530ff', '#fd6430ff', '#fd6330ff', '#fd622fff', '#fd612fff', '#fd602fff', '#fd5f2fff', '#fd5e2eff', '#fd5d2eff', '#fd5c2eff', '#fd5b2dff', '#fd5a2dff', '#fd592dff', '#fd582dff', '#fd572cff', '#fd562cff', '#fd552cff', '#fd542bff', '#fd532bff', '#fd522bff', '#fd512aff', '#fd502aff', '#fd4f2aff', '#fc4e2aff', '#fc4d29ff', '#fc4c29ff', '#fb4b29ff', '#fb4a29ff', '#fa4a29ff', '#fa4928ff', '#fa4828ff', '#f94728ff', '#f94628ff', '#f84527ff', '#f84427ff', '#f84427ff', '#f74327ff', '#f74226ff', '#f64126ff', '#f64026ff', '#f63f26ff', '#f53f26ff', '#f53e25ff', '#f43d25ff', '#f43c25ff', '#f43b25ff', '#f33a24ff', '#f33a24ff', '#f23924ff', '#f23824ff', '#f23724ff', '#f13623ff', '#f13523ff', '#f03523ff', '#f03423ff', '#f03322ff', '#ef3222ff', '#ef3122ff', '#ee3022ff', '#ee3022ff', '#ee2f21ff', '#ed2e21ff', '#ed2d21ff', '#ec2c21ff', '#ec2b20ff', '#ec2b20ff', '#eb2a20ff', '#eb2920ff', '#ea281fff', '#ea271fff', '#ea261fff', '#e9261fff', '#e9251fff', '#e8241eff', '#e8231eff', '#e8221eff', '#e7211eff', '#e7211dff', '#e6201dff', '#e61f1dff', '#e61e1dff', '#e51d1dff', '#e51c1cff', '#e41b1cff', '#e41b1cff', '#e31a1cff', '#e3191cff', '#e2191cff', '#e2181cff', '#e1181cff', '#e0181cff', '#e0171dff', '#df171dff', '#df161dff', '#de161dff', '#dd161dff', '#dd151dff', '#dc151eff', '#dc141eff', '#db141eff', '#da131eff', '#da131eff', '#d9131eff', '#d9121eff', '#d8121fff', '#d7111fff', '#d7111fff', '#d6111fff', '#d5101fff', '#d5101fff', '#d40f20ff', '#d40f20ff', '#d30e20ff', '#d20e20ff', '#d20e20ff', '#d10d20ff', '#d10d21ff', '#d00c21ff', '#cf0c21ff', '#cf0b21ff', '#ce0b21ff', '#ce0b21ff', '#cd0a22ff', '#cc0a22ff', '#cc0922ff', '#cb0922ff', '#ca0922ff', '#ca0822ff', '#c90822ff', '#c90723ff', '#c80723ff', '#c70623ff', '#c70623ff', '#c60623ff', '#c60523ff', '#c50524ff', '#c40424ff', '#c40424ff', '#c30424ff', '#c30324ff', '#c20324ff', '#c10225ff', '#c10225ff', '#c00125ff', '#bf0125ff', '#bf0125ff', '#be0025ff', '#be0026ff', '#bd0026ff', '#bc0026ff', '#bb0026ff', '#ba0026ff', '#b90026ff', '#b80026ff', '#b70026ff', '#b60026ff', '#b50026ff', '#b40026ff', '#b30026ff', '#b20026ff', '#b10026ff', '#b00026ff', '#af0026ff', '#ae0026ff', '#ad0026ff', '#ac0026ff', '#ab0026ff', '#aa0026ff', '#a90026ff', '#a80026ff', '#a70026ff', '#a60026ff', '#a50026ff', '#a40026ff', '#a30026ff', '#a20026ff', '#a10026ff', '#a00026ff', '#9f0026ff', '#9e0026ff', '#9d0026ff', '#9c0026ff', '#9b0026ff', '#9b0026ff', '#9a0026ff', '#990026ff', '#980026ff', '#970026ff', '#960026ff', '#950026ff', '#940026ff', '#930026ff', '#920026ff', '#910026ff', '#900026ff', '#8f0026ff', '#8e0026ff', '#8d0026ff', '#8c0026ff', '#8b0026ff', '#8a0026ff', '#890026ff', '#880026ff', '#870026ff', '#860026ff', '#850026ff', '#840026ff', '#830026ff', '#820026ff', '#810026ff', '#800026ff']);
+    
+
+    color_map_f3aafb34ce51d2a0960159efe52124a9.x = d3.scale.linear()
+              .domain([10.0, 30.0])
+              .range([0, 450 - 50]);
+
+    color_map_f3aafb34ce51d2a0960159efe52124a9.legend = L.control({position: 'topright'});
+    color_map_f3aafb34ce51d2a0960159efe52124a9.legend.onAdd = function (map) {var div = L.DomUtil.create('div', 'legend'); return div};
+    color_map_f3aafb34ce51d2a0960159efe52124a9.legend.addTo(map_48d3fe76eab4c6e6e8ecf793403e8122);
+
+    color_map_f3aafb34ce51d2a0960159efe52124a9.xAxis = d3.svg.axis()
+        .scale(color_map_f3aafb34ce51d2a0960159efe52124a9.x)
+        .orient("top")
+        .tickSize(1)
+        .tickValues([10.0, 12.5, 15.0, 17.5, 20.0, 22.5, 25.0, 27.5, 30.0]);
+
+    color_map_f3aafb34ce51d2a0960159efe52124a9.svg = d3.select(".legend.leaflet-control").append("svg")
+        .attr("id", 'legend')
+        .attr("width", 450)
+        .attr("height", 40);
+
+    color_map_f3aafb34ce51d2a0960159efe52124a9.g = color_map_f3aafb34ce51d2a0960159efe52124a9.svg.append("g")
+        .attr("class", "key")
+        .attr("transform", "translate(25,16)");
+
+    color_map_f3aafb34ce51d2a0960159efe52124a9.g.selectAll("rect")
+        .data(color_map_f3aafb34ce51d2a0960159efe52124a9.color.range().map(function(d, i) {
+          return {
+            x0: i ? color_map_f3aafb34ce51d2a0960159efe52124a9.x(color_map_f3aafb34ce51d2a0960159efe52124a9.color.domain()[i - 1]) : color_map_f3aafb34ce51d2a0960159efe52124a9.x.range()[0],
+            x1: i < color_map_f3aafb34ce51d2a0960159efe52124a9.color.domain().length ? color_map_f3aafb34ce51d2a0960159efe52124a9.x(color_map_f3aafb34ce51d2a0960159efe52124a9.color.domain()[i]) : color_map_f3aafb34ce51d2a0960159efe52124a9.x.range()[1],
+            z: d
+          };
+        }))
+      .enter().append("rect")
+        .attr("height", 40 - 30)
+        .attr("x", function(d) { return d.x0; })
+        .attr("width", function(d) { return d.x1 - d.x0; })
+        .style("fill", function(d) { return d.z; });
+
+    color_map_f3aafb34ce51d2a0960159efe52124a9.g.call(color_map_f3aafb34ce51d2a0960159efe52124a9.xAxis).append("text")
+        .attr("class", "caption")
+        .attr("y", 21)
+        .text("\u7269\u7a2e\u6578\u91cf");
+</script>
+</html>
