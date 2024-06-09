@@ -1,0 +1,51 @@
+# 安裝並載入所需的包
+#install.packages("ggplot2")
+#install.packages("ggpubr")
+library(ggplot2)
+library(ggpubr)
+library(dplyr)
+
+# 讀取 CSV 文件
+data <-read_csv("data/pair-t-test-data.csv")
+
+# 確認數據框結構
+str(data)
+
+# 將數據轉換為寬格式以進行成對樣本 t 檢定
+data_wide <- data %>%
+  pivot_wider(names_from = time, values_from = count) %>%
+  na.omit()
+
+# 進行成對樣本 t 檢定並保存結果
+results <- list()
+bird_species <- unique(data$bird)
+
+for (bird in bird_species) {
+  bird_data <- data_wide %>% filter(bird == !!bird)
+  morning_data <- bird_data$morning
+  noon_data <- bird_data$noon
+  
+  # 成對樣本 t 檢定
+  stat.test <- t.test(morning_data, noon_data, paired = TRUE)
+  
+  results[[bird]] <- t_test
+}
+
+# 確認結果
+results
+
+# 畫出箱型圖並標示顯著性結果
+p <- ggplot(data, aes(x = bird, y = count, fill = time)) +
+  geom_boxplot() + stat_pvalue_manual(
+    stat.test,
+    hide.ns = TRUE, tip.length = 1,
+    label = "p.signif",
+    position = position_dodge(0.8)
+  )
+  #stat_compare_means(aes(label = "p.adj.signif"), method = "t.test", 
+   #                  paired = TRUE, step.increase = 0.08, hide.ns = TRUE)# +
+  #theme_minimal()
+
+# 顯示圖形
+print(p)
+

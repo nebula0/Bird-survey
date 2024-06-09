@@ -1,0 +1,44 @@
+library(readr)
+library(tidyverse)
+library(rstatix)
+library(ggpubr)
+library(dplyr)
+
+
+
+Sys.setlocale("LC_ALL", "Chinese (Traditional)_Taiwan.950")
+data <-read_csv("data/pair-t-test-data.csv")
+data <- data %>% convert_as_factor(time)
+data <- data %>% convert_as_factor(bird)
+
+ggplot(data, aes(x=bird, y=amount, fill=time)) + 
+  geom_boxplot() + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+
+# data
+df1 <- read.table(text = "reg        id    n
+Echo       E1    7
+Charlie    C1    3
+Alpha      A1    5
+Echo       E2    1
+Alpha      A2    4
+Charlie    C2    9", header = TRUE)
+
+library(dplyr)
+df1 %>% 
+  group_by(reg) %>% 
+  mutate(nSum = sum(n)) %>% 
+  arrange(-nSum, -n) %>% 
+  select(-nSum)
+
+# Source: local data frame [6 x 3]
+# Groups: reg [3]
+# 
+#       reg     id     n
+#    <fctr> <fctr> <int>
+# 1 Charlie     C2     9
+# 2 Charlie     C1     3
+# 3   Alpha     A1     5
+# 4   Alpha     A2     4
+# 5    Echo     E1     7
+# 6    Echo     E2     1
